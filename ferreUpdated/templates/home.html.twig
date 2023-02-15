@@ -1,0 +1,216 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ferre Los Pinos{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/style/home.css">
+
+{% endblock %}
+{% block body %}
+<link rel="shortcut icon" href="https://e7.pngegg.com/pngimages/353/304/png-clipart-barbecue-tool-fman-animated-hammer.png">
+
+<div class="header" id="divInicio">
+    <div class="header__text-box">
+        <h1 class="heading-primary">
+            <span class="heading-primary--main">Ferreteria Los Pinos</span>
+            <span class="heading-primary--sub"><em>"Rapidez, Seguridad y el Mejor Servicio."</em></span>
+            <!-- <span class="heading-primary--sub">el Mejor Servicio.</span> -->
+        </h1>
+        <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn--white btn--animated">Cotiza ahora!</a>
+    </div>
+</div>
+<div class="slogan">
+    <div class="row centered">
+        <p class="font-weight-light centered" >Rapidez, Seguridad y el Mejor Servicio.</p>
+    </div>
+    <div class="row centered">
+        <p class="font-weight-light pad" style="font-size:20px;">
+            Nuestra estrategia nos hace diferentes en el mercado, debido a que nos enfocamos
+            en brindar soluciones a traves de nuestros 3 pilares principales:<br>
+            <i class="far fa-dot-circle" style="font-size:17px;"></i> Logística de cadena de suministro.<br>
+            <i class="far fa-dot-circle" style="font-size:17px;"></i> Eficiencia operacional.<br>
+            <i class="far fa-dot-circle" style="font-size:17px;"></i> Compromiso con nuestros clientes.
+        </p>
+    </div>
+</div>
+<br>
+{#<hr style="border-top: 1px solid #e6e6e6">
+<div class="row">
+    <div class="col-4" id="grandeIzq">
+        <!-- AQUI VA EL PRODUCTO GRANDE DE LA IZQUIERDA QUE SE INSERTA CON JQUERY -->
+    </div>
+    <div class="col-4" id="chicoEnmedio">
+        <!-- AQUI VAN LOS PRODUCTOS DE ENMEDIO QUE SE INSERTAN CON JQUERY -->
+    </div>
+    <div class="col-4" id="chicoDer">
+        <!-- AQUI VAN LOS PRODUCTOS DE LA DERECHA QUE SE INSERTAN CON JQUERY -->        
+    </div>
+</div>
+<br>#}
+
+<hr style="border-top: 1px solid #e6e6e6">
+
+<div id="productosRecientes">
+    <div class="row">
+        <p class="font-weight-light centered" style="font-size:3rem;">Productos Recientes.</p>
+    </div>
+    <div id="card-slider" class="splide">
+        <div class="splide__track">
+            <ul class="splide__list">
+                {% for product in lastProducts %}
+                    <li class="splide__slide">
+                        <div class="splide__slide__container">
+                            <img src="{{product.imageLink}}">
+                        </div>
+                        <div class="mb-4" style="text-align: center;">
+                            {% for brand in product.brandProductRelations %}
+                                <h4 style="text-transform: uppercase;">{{brand.brand.name}}</h4>
+                            {% endfor %}
+                            <b>{{product.name}}</b><br>
+                            <a class="btn btn-primary-outline" href="viewProduct/{{product.id}}">Ver Detalles</a>
+                        </div>
+                        
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<hr style="border-top: 1px solid #e6e6e6">
+
+<div id="divNosotros">
+    <div class="row">
+        <p class="font-weight-light centered" style="font-size:3rem;">Sobre Nosotros.</p>
+    </div>
+    <div class="row">
+        <p class="font-weight-light centered aboutus" style="font-size:17px;">Ferreteria los pinos con mas de 25 años de experiencia en el mercado.</p>
+    </div>
+    <div class="row">
+        <p class="font-weight-light centered aboutus" style="font-size:17px;">Enfocados siempre en proveer soluciones a las necesidades de nuestros clientes tanto en el hogar como la industria.</p>
+    </div>
+</div>    
+<br>
+<hr style="border-top: 1px solid #e6e6e6">
+
+<div id="divContacto" class="parallax contacto">
+    <div class="row separador"></div>
+            <div class="card animatable fadeInUp cardContacto" style="width: 37%; margin-left:auto; margin-right: auto">
+            <div class="card-body">
+            <h5 class="card-title" style="text-align: center;"><p class="font-weight-light centered" style="overflow:visible;">Contáctanos</p></h5>
+            <hr style="width: 33%;height: 2px;background-color:black; margin-bottom: 2.5rem;">
+                <div class="row">
+                    <div class="col-lg-6 col-12"style="text-align: center;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.479091650429!2d-100.29440798548777!3d25.655408619254505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bfc7b7f89a7b:0xdcfa32e46c56a38c!2sFerretería Los Pinos!5e0!3m2!1ses-419!2smx!4v1621659749385!5m2!1ses-419!2smx" width="87%" height="56%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <p style="margin-top: 1rem"><a style="white-space: nowrap" class="auto-generated-link" data-auto-recognition="true" data-content="fytlospinos@hotmail.com" href="mailto:fytlospinos@hotmail.com" data-type="mail">fytlospinos@hotmail.com</a></p>
+                    </div>
+                    <div class="col-lg-6 col-12" style="text-align: center;">
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="inputName" placeholder="Nombre(s) *"required>
+                            <small id="nameHelp" class="form-text text-muted d-none">Introduce un Nombre Válido</small>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Email *" required>
+                            <small id="emailHelp" class="form-text text-muted d-none">Introduce un email Válido</small>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="inputAsunto" placeholder="Asunto *"required>
+                            <small id="asuntoHelp" class="form-text text-muted d-none">Introduce un asunto Válido</small>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="inputDescription" rows="3" placeholder="Mensaje... *"required></textarea>
+                            <small id="mensajeHelp" class="form-text text-muted d-none">Introduce un mensaje</small>
+                        </div>
+                        <div class="form-group">
+                            <input id="sendInvitation" type="submit" class="btn btn-primary" onClick="sendMessage()" value="Enviar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<hr style="border-top: 1px solid #e6e6e6">
+    <!-- Rates de Google -->
+    <div class="row">
+        <p class="font-weight-light centered" style="font-size:3rem;">Nuestras Valoraciones</p>
+    </div>
+    <div class="row">
+        <a class="botonReseña" href="https://search.google.com/local/writereview?placeid=ChIJe5r4t8e_YoYRjKNWbOQy-tw" target="_blank">
+            <button class="btn btn-primary botonReseña">Escribe una Reseña</button>
+        </a>
+    </div>
+    <div class="tagembed-container" style=" width:90%;height:100%;overflow: auto; margin-left: auto; margin-right: auto;">
+        <div class="tagembed-socialwall" data-wall-id="12605" view-url="https://widget.tagembed.com/12605?view"></div>
+        <script src="//widget.tagembed.com/embed.min.js" type="text/javascript"></script>
+    </div>
+<br>
+<hr style="border-top: 1px solid #e6e6e6">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nueva Cotización</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-1">
+                <label for="recipient-name" class="col-form-label">Nombre(s):</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+            <div class="mb-1">
+              <label for="recipient-email" class="col-form-label">Email:</label>
+              <input type="email" class="form-control" id="recipient-email">
+            </div>
+            <div class="mb-1">
+                <label for="recipient-telefono" class="col-form-label">Télefono:</label>
+                <input type="phone" class="form-control only-numbers-input" id="recipient-telefono">
+              </div>
+            <div class="mb-1">
+              <label for="message-text" class="col-form-label">¿Qué deseas cotizar?</label>
+              <small>(Sé lo más específico posible)</small>
+              <textarea class="form-control" rows="3" id="message-text" placeholder="Color, tamaño, medidas, etc..."></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-outline-primary" onClick="sendToQuotation()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/js/home.js"></script>
+
+    <script>
+        var sendMessageUrl = "{{path ('_send_message')}}";
+        var receiveQuoteUrl = "{{path ('_receive_quote')}}";
+        document.addEventListener( 'DOMContentLoaded', function () {
+            new Splide( '.splide', {
+                type   : 'slide',
+                perPage: 3,
+                perMove: 1,
+                autoplay: false,
+                padding: '0.1rem',
+                cover      : true,
+                heightRatio: 0.25,
+                fixedWidth: '33%',
+                rewind: true,
+                breakpoints: {
+                    640: {
+                        perPage: 1,
+                        fixedWidth: '98%',
+                        heightRatio: 0.8
+                    },
+                }
+            } ).mount();
+        } );
+    </script>
+{% endblock %}

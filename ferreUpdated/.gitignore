@@ -1,10 +1,32 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
+/public/assets/
+/public/assets/charly_dump.sql
 /var/
+/data/
 /vendor/
+/.env
+/logs
+/database/data
+/config/packages/bugsnag.yaml
+/.idea
+/migrations/
 ###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+public/assets/files/
+
+public/vendor/js/pdfjs-express/samples/
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###

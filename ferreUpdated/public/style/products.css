@@ -1,0 +1,14 @@
+
+@media (min-width: 991px){
+    .filtros{
+        margin-left: 10%;
+    }
+}
+@media (max-width: 991px){
+    .col-lg-12{
+        margin-bottom: 1em;
+    }
+    .filterBtn{
+        text-align: center;
+    }
+}

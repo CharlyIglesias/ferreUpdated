@@ -13,7 +13,7 @@ RUN apk add --no-cache \
 RUN apk add --no-cache libpng libpng-dev && docker-php-ext-install gd && apk del libpng-dev
 RUN apk update && apk add bash
 CMD echo Installed bash
-COPY --from=composer:1.10.20 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www
 RUN chown -R www-data:www-data /var/www
 RUN chmod -R 755 /var/www

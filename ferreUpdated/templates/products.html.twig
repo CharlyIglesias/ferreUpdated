@@ -1,0 +1,167 @@
+{% extends "base2.html.twig" %}
+
+{% block title %}Ferre Los Pinos{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/style/home.css">
+    <link rel="stylesheet" href="/style/products.css">
+
+{% endblock %}
+{% block body %}
+<link rel="shortcut icon" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngegg.com%2Fes%2Fpng-zqlqw&psig=AOvVaw0vkzI7jUGI2j-lkO48DeJj&ust=1631925752899000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIjZ46rjhPMCFQAAAAAdAAAAABAD">
+
+<div class="page-container">
+    <div id="productosRecientes">
+        <div class="row">
+            <p class="font-weight-light centered" style="font-size:3rem;">Nuestras Marcas.</p>
+        </div>
+    </div>
+    <div class="splide">
+        <div class="splide__track">
+            <ul class="splide__list mb-4">
+                <li class="splide__slide">
+                    <div class="splide__slide__container">
+                        <img src="https://www.truper.com/media/home_brands/truper.png" alt="LogoTruper">
+                    </div>
+                </li>
+                <li class="splide__slide">
+                    <div class="splide__slide__container">
+                        <img src="https://www.technoinjectiontools.mx/wp-content/uploads/2016/12/milwaukee_new.jpg" alt="LogoMilwaukee">
+                    </div>
+                </li>
+                <li class="splide__slide">
+                    <div class="splide__slide__container">
+                        <img src="https://findvectorlogo.com/wp-content/uploads/2019/02/master-lock-vector-logo.png" alt="LogoMaster">
+                    </div>
+                </li>
+                <li class="splide__slide">
+                    <div class="splide__slide__container">
+                        <img src="https://cdn.shopify.com/s/files/1/0056/1361/7186/collections/URREA_320x320PX_1200x1200.png?v=1607456646" alt="LogoUrrea">
+                    </div>
+                </li>
+                <li class="splide__slide">
+                    <div class="splide__slide__container">
+                        <img src="https://www.viawebrc.com/wp-content/uploads/2019/06/rugo-gris.png" alt="LogoRugo">
+                    </div>
+                </li>
+                <li class="splide__slide">
+                    <div class="splide__slide__container">
+                        <img src="https://i1.wp.com/www.berelmexico.com/wp-content/uploads/2020/06/OIU-1.png?fit=969%2C767&ssl=1" alt="LogoBerel">
+                    </div>
+                </li>
+                <li class="splide__slide">
+                    <div class="splide__slide__container">
+                        <img src="https://www.yalehome.com.co/Yale/yalelcolombiaCOM/Fotos%20secciones%20productos%20COL/Phillips.jpg" alt="LogoPhilips">
+                    </div>
+                </li>
+                <li class="splide__slide">
+                    <div class="splide__slide__container">
+                        <img src="https://www.mirocom.com.mx/img/m/90.jpg" alt="Logo3M">
+                    </div>
+                </li>
+                <li class="splide__slide">
+                    <div class="splide__slide__container">
+                        <img src="https://trademarks.justia.com/media/og_image.php?serial=86778849" alt="LogoVolteck">
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <div id="productosRecientes">
+        <div class="row">
+            <p class="font-weight-light centered" style="font-size:3rem;">Nuestros Productos.</p>
+        </div>
+    </div>
+    <div class="row mb-4 filtros">
+        <div class="col-lg-12 col-xl-3">
+            <label class="typo__label d-none">Filtrar por Familia</label>
+            <multiselect class="multiselect1" v-model="currentProduct.familia" placeholder="Buscar por Familia" label="name" track-by="id" :options="allFamiliesList()" :multiple="false"></multiselect>
+        </div>
+        <div class="col-lg-12 col-xl-3">
+            <label class="typo__label d-none">Filtrar por Marca?</label>
+            <multiselect class="multiselect2" v-model="currentProduct.brand" placeholder="Filtrar por Marca" label="name" track-by="id" :options="allBrandsList()" :multiple="true"></multiselect>
+        </div>
+        <div class="col-lg-12 col-xl-3">
+                <input id="searchedText" class="form-control" v-model="currentProduct.name" type="text" placeholder="Búsqueda por nombre">
+            </div>
+        <div class="col-lg-12 col-xl-3 filterBtn">
+            <button id="filterBtn" v-on:click="filter()" class="btn btn-primary-outline">Filtrar</button>
+        </div>
+    </div>
+    <div class="container tarjetas" id="appendHere">
+        <div class="card-deck mb-3">
+            {% set counter = 1 %}
+            {% for product in products %}
+                {% if isMobile == 1 %}
+                <div class="card tarjetita" style="width: 25rem;">
+                    <a class="tarjetaClickeableMobile" href="viewProduct/{{product.id}}">
+                        <div class="row">
+                            <div class="col-6">
+                                <img class="card-img-top" src="{{product.imageLink}}" alt="Card image cap">
+                            </div>
+                            <div class="col-6" style="background-color: #f8f8f8;">
+                                <div class="card-title mt-3">
+                                    {% for brand in product.brandProductRelations %}
+                                        <span style="text-transform: uppercase;">{{brand.brand.name}}</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="card-subtitle">
+                                    <b class="productNameMobile">{{product.name}}</b>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% else %}
+                    <a class="tarjetaClickeable" href="viewProduct/{{product.id}}">
+                        <div class="card" style="width: 16rem; max-width: 16rem;">
+                            <img style="object-fit: cover; max-height: 14em; min-height: 254px" class="card-img-top" src="{{product.imageLink}}" alt="Card image cap">
+                            <div class="card-title">
+                                {% for brand in product.brandProductRelations %}
+                                    <h4 style="text-transform: uppercase;">{{brand.brand.name}}</h4>
+                                {% endfor %}
+                            </div>
+                            <div class="card-subtitle">
+                                <b class="productName">{{product.name}}</b>
+                            </div>
+                            <div class="card-footer mt-auto" style="text-align: center;">
+                                <a class="btn btn-primary-outline" href="viewProduct/{{product.id}}">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% set counter = counter + 1 %}
+                {% if counter > 5 %}
+                    </div><div class="card-deck mb-3">
+                    {% set counter = 1 %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+<script src="/js/products.js"></script>
+    <script>
+        var filtrarProductosUrl = "{{path ('_filtrar_productos')}}";
+
+        var familiesArr = [];
+        {% for family in families %}
+            var fam = { name: "{{family.name}}", id: "{{family.id}}"};
+            familiesArr.push(fam);
+        {% endfor %}
+        var brandsArr = [];
+        {% for brand in brands %}
+            var bra = { name: "{{brand.name}}", id: "{{brand.id}}"};
+            brandsArr.push(bra);
+        {% endfor %}
+
+        {% if searchedText is not null %}
+            var searchedText = "{{searchedText}}";
+        {% else %}
+            var searchedText = "";
+        {% endif %}
+    </script>
+{% endblock %}

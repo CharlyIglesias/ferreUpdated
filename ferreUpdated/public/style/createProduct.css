@@ -1,0 +1,196 @@
+.divider{
+    border-top: 1px solid #e6e6e6;
+}
+
+@media only screen and (min-width: 992px){
+    .image{
+        max-width: 75%;
+        margin-left: auto; 
+        object-fit: cover;
+    }
+}
+
+@media only screen and (min-width: 1591px){
+    .image{
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: 12%;
+        object-fit: cover;
+    }
+}
+.inputs{
+    padding: 12px !important;
+    text-decoration: none;
+    padding-left: 5px !important;
+    max-width: 98%;
+}
+.toast{
+    position: fixed;
+    right: 3%;
+    bottom:3%;
+    z-index: 999;
+}
+.toast-header{
+    background-color: lightgray !important;
+    color: black;
+}
+
+.inputazo{
+    display: none !important;
+}
+.botonazo{
+    display: none !important;
+}
+
+.go_top{
+    display: none;
+}
+
+
+ul.ks-cboxtags {
+    list-style: none;
+    padding: 10px 15px 0px 15px;
+  }
+  ul.ks-cboxtags li{
+  display: inline;
+  }
+  ul.ks-cboxtags li label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+  }
+  
+  ul.ks-cboxtags li label {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  ul.ks-cboxtags li label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+  }
+  
+  ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+  }
+  
+  ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    border: 2px solid #1bdbf8;
+    background-color: #12bbd4;
+    color: #fff;
+    transition: all .2s;
+  }
+  
+  ul.ks-cboxtags li input[type="checkbox"] {
+    display: absolute;
+  }
+  ul.ks-cboxtags li input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+  }
+  ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+    border: 2px solid #e9a1ff;
+  }
+  .btn-primary-outline {
+    background: #fff;
+    color: #12bbd4;
+    border: 1px solid #1bdbf8;
+    border-radius: 25px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding: 10px 25px 10px 25px;
+}
+
+.btn-primary-outline:disabled {
+    background: #e3e3e3;
+    color: #12bbd4;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding: 10px 25px 10px 25px;
+}
+
+.btn-primary-outline:focus, .btn-primary-outline:focus {
+    color: #fff !important;
+    background: #00A296 !important;
+    border: 1px solid #00A296 !important;
+    border-radius: 25px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding: 10px 25px 10px 25px;
+}
+
+.btn-outline-success:focus, .pressedBuscarBtn, .btn-primary-success:active{
+    color: #fff !important;
+    background: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+.familiasRounded{
+  background: #d1fae5;
+  color: #065f46;
+  padding: 1px 5px;
+  border-radius: 9px;
+  font-weight: 500;
+}
+
+.tarjetas {
+  max-width: 820px;
+  margin: 0px auto;
+}
+.comment {
+  float: left;
+  width: 100%;
+  height: auto;
+}
+.commenter {
+  float: left;
+}
+.textinput {
+  float: left;
+  width: 100%;
+  min-height: 75px;
+  outline: none;
+  resize: none;
+}
+
+.row{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.dots{
+  list-style: disc !important;
+}

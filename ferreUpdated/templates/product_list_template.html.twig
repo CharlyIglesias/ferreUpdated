@@ -1,0 +1,48 @@
+<div class="card-deck mb-3">
+    {% set counter = 1 %}
+    {% for product in products %}
+        {% if isMobile == 1 %}
+        <div class="card tarjetita" style="width: 25rem;">
+            <a class="tarjetaClickeableMobile" href="viewProduct/{{product.id}}">
+                <div class="row">
+                    <div class="col-6">
+                        <img class="card-img-top" src="{{product.imageLink}}" alt="Card image cap">
+                    </div>
+                    <div class="col-6" style="background-color: #f8f8f8;">
+                        <div class="card-title mt-3">
+                            {% for brand in product.brandProductRelations %}
+                                <span style="text-transform: uppercase;">{{brand.brand.name}}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="card-subtitle">
+                            <b class="productNameMobile">{{product.name}}</b>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% else %}
+            <a class="tarjetaClickeable" href="viewProduct/{{product.id}}">
+                <div class="card" style="width: 16rem; max-width: 16rem">
+                    <img style="object-fit: cover; max-height: 14em; min-height: 254px" class="card-img-top" src="{{product.imageLink}}" alt="Card image cap">
+                    <div class="card-title">
+                        {% for brand in product.brandProductRelations %}
+                            <h4 style="text-transform: uppercase;">{{brand.brand.name}}</h4>
+                        {% endfor %}
+                    </div>
+                    <div class="card-subtitle">
+                        <b class="productName">{{product.name}}</b>
+                    </div>
+                    <div class="card-footer mt-auto" style="text-align: center;">
+                        <a class="btn btn-primary-outline" href="viewProduct/{{product.id}}">Ver Detalles</a>
+                    </div>
+                </div>
+            </a>
+        {% endif %}
+    {% set counter = counter + 1 %}
+        {% if counter > 5 %}
+            </div><div class="card-deck mb-3">
+            {% set counter = 1 %}
+        {% endif %}
+    {% endfor %}
+</div>
